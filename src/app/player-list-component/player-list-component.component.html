@@ -1,0 +1,16 @@
+<p>
+  user-list-component works!
+</p>
+<ul class="players" *ngFor="let player of playerList">
+  <li>
+    <span class="badge">{{player.id}}</span> {{player.name}}
+  </li>
+</ul>
+
+<div>
+  <label>new player:
+    <input [(ngModel)]="player" placeholder="player">
+  </label>
+
+  <input type="button" (click)="createPlayer()" value="Create"/>
+</div>
