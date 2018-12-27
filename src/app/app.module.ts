@@ -10,6 +10,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { MatchListComponentComponent } from './match-list-component/match-list-component.component';
 import {MatchService} from './service/match.service';
+import {MatTableModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import {MatchService} from './service/match.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
     HttpClientModule
   ],
   providers: [PlayerService, MatchService],

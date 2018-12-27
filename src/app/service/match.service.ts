@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {HttpClient} from '@angular/common/http';
 import {Match} from '../model/match';
+import {Observable} from 'rxjs/internal/Observable';
 
 @Injectable()
 export class MatchService {
