@@ -13,7 +13,7 @@ export class PlayerService {
   }
 
   public createPlayer(player: string): Observable<Player> {
-    return this.http.put(this.url, player);
+    return this.http.put<Player>(this.url, player);
   }
 
 }
