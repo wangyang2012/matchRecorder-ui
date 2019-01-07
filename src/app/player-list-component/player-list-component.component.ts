@@ -12,7 +12,7 @@ export class PlayerListComponentComponent implements OnInit {
   private playerList: Player[] = [];
   private player: string;
 
-    displayedColumns: string[] = ['name', 'score'];
+  displayedColumns: string[] = ['name', 'score'];
 
   constructor(private playerService: PlayerService) { }
 

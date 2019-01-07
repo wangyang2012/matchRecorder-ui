@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Match} from '../model/match';
 import {MatchService} from '../service/match.service';
+import {Player} from '../model/player';
 
 @Component({
   selector: 'app-match-list-component',
@@ -9,7 +10,8 @@ import {MatchService} from '../service/match.service';
 })
 export class MatchListComponentComponent implements OnInit {
 
-  private matchList: Match[];
+  private matchList: Match[] = [];
+  displayedColumns: string[] = ['player1', 'player2', 'score', 'subScore1', 'subScore2', 'subScore3', 'subScore4', 'subScore5', 'matchDateTime'];
   constructor(private matchService: MatchService) { }
 
   ngOnInit() {
