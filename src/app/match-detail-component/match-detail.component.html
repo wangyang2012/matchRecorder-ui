@@ -1,0 +1,11 @@
+<div>
+    <span> 选手1: {{match.player1.name}}</span><br/>
+    <span> 选手2: {{match.player2.name}}</span><br/>
+    <span> 比分： {{match.score1}} : {{match.score2}}</span><br/>
+    <span> 比赛日期： {{match.matchDateTimeStr}}</span><br/>
+    <span *ngIf="match.subScore11 != null && match.subScore21 != null"> 第一局： {{match.subScore11}} : {{match.subScore21}}</span><br/>
+    <span *ngIf="match.subScore12 != null && match.subScore22 != null"> 第二局： {{match.subScore12}} : {{match.subScore22}}</span><br/>
+    <span *ngIf="match.subScore13 != null && match.subScore23 != null"> 第三局： {{match.subScore13}} : {{match.subScore23}}</span><br/>
+    <span *ngIf="match.subScore14 != null && match.subScore24 != null"> 第四局： {{match.subScore14}} : {{match.subScore24}}</span><br/>
+    <span *ngIf="match.subScore15 != null && match.subScore25 != null"> 第五局： {{match.subScore15}} : {{match.subScore25}}</span>
+</div>

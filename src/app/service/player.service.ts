@@ -16,4 +16,7 @@ export class PlayerService {
     return this.http.put<Player>(this.url, player);
   }
 
+    findPlayersToFight(idPlayer1: number): Observable<Array<Player>> {
+      return this.http.get<Player[]>(this.url + idPlayer1 + '/toFight');
+    }
 }

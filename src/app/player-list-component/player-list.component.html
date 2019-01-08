@@ -1,0 +1,39 @@
+<table mat-table [dataSource]="playerList" class="mat-elevation-z8">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> 姓名 </th>
+    <td mat-cell *matCellDef="let player"> {{player.name}} </td>
+  </ng-container>
+
+  <!-- Win Column -->
+  <ng-container matColumnDef="win">
+    <th mat-header-cell *matHeaderCellDef> 胜 </th>
+    <td mat-cell *matCellDef="let player"> {{player.nbWin}} </td>
+  </ng-container>
+
+  <!-- Lose Column -->
+  <ng-container matColumnDef="lose">
+    <th mat-header-cell *matHeaderCellDef> 负 </th>
+    <td mat-cell *matCellDef="let player"> {{player.nbLose}} </td>
+  </ng-container>
+
+  <!-- Score Column -->
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> 积分 </th>
+    <td mat-cell *matCellDef="let player"> {{player.score}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<div>
+    <mat-form-field>
+      <input type="text" [(ngModel)]="player" matInput placeholder="新选手">
+    </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="createPlayer()">保存</button>
+</div>

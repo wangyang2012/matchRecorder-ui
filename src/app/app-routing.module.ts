@@ -1,12 +1,15 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PlayerListComponentComponent} from './player-list-component/player-list-component.component';
-import {MatchListComponentComponent} from './match-list-component/match-list-component.component';
+import {PlayerListComponent} from './player-list-component/player-list.component';
+import {MatchListComponent} from './match-list-component/match-list.component';
+import {MatchEditComponent} from './match-edit-component/match-edit.component';
 
 const routes: Routes = [
-    { path: 'player-list', component: PlayerListComponentComponent },
-    { path: 'match-list', component: MatchListComponentComponent }
+    { path: '', redirectTo: '/player-list', pathMatch: 'full' },
+    { path: 'player-list', component: PlayerListComponent },
+    { path: 'match-list', component: MatchListComponent },
+    { path: 'match-edit', component: MatchEditComponent }
 ];
 
 @NgModule({

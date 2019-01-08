@@ -1,34 +1,54 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PlayerListComponentComponent } from './player-list-component/player-list-component.component';
+import { PlayerListComponent } from './player-list-component/player-list.component';
 import {PlayerService} from './service/player.service';
-import { PlayerEditComponentComponent } from './player-edit-component/player-edit-component.component';
+import { PlayerEditComponent } from './player-edit-component/player-edit.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
-import { MatchListComponentComponent } from './match-list-component/match-list-component.component';
+import {MatchDetailDialogComponent, MatchListComponent} from './match-list-component/match-list.component';
 import {MatchService} from './service/match.service';
-import {MatTableModule} from '@angular/material';
+import {
+    MatAutocompleteModule, MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule
+} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatchEditComponent} from './match-edit-component/match-edit.component';
+import {MatchDetailComponent} from './match-detail-component/match-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerListComponentComponent,
-    PlayerEditComponentComponent,
-    MatchListComponentComponent
+    PlayerListComponent,
+    PlayerEditComponent,
+    MatchListComponent,
+    MatchEditComponent,
+    MatchDetailComponent,
+    MatchDetailDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatTableModule,
     HttpClientModule
   ],
-  providers: [PlayerService, MatchService],
+  entryComponents: [MatchDetailDialogComponent],
+  providers: [PlayerService, MatchService, MatchDetailComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

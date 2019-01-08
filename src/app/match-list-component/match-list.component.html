@@ -2,16 +2,12 @@
   Match list
 </p>
 
-<ul *ngFor="let match of matchList">
-  <li>{{match.id}} - {{match.player1.name}} {{match.player2.name}}</li>
-</ul>
-
 <table mat-table [dataSource]="matchList" class="mat-elevation-z8">
 
   <!-- Player 1 Column -->
   <ng-container matColumnDef="player1">
     <th mat-header-cell *matHeaderCellDef> 选手1 </th>
-    <td mat-cell *matCellDef="let match"><a  {{match.player1.name}} </td>
+    <td mat-cell *matCellDef="let match"> {{match.player1.name}} </td>
   </ng-container>
 
   <!-- Player 2 Column -->
@@ -23,7 +19,7 @@
   <!-- Score Column -->
   <ng-container matColumnDef="score">
     <th mat-header-cell *matHeaderCellDef> 比分 </th>
-    <td mat-cell *matCellDef="let match"> {{match.score1}} : {{match.score2}} </td>
+    <td mat-cell *matCellDef="let match"> <a (click)="openMatchDetail(match)"> {{match.score1}} : {{match.score2}} </a></td>
   </ng-container>
 
   <!-- subScore 1 Column -->
@@ -65,3 +61,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<button mat-raised-button color="primary" [routerLink]="['/match-edit']">记录比分</button >

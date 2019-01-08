@@ -3,16 +3,16 @@ import {PlayerService} from '../service/player.service';
 import {Player} from '../model/player';
 
 @Component({
-  selector: 'app-player-list-component',
-  templateUrl: './player-list-component.component.html',
-  styleUrls: ['./player-list-component.component.css']
+  selector: 'app-player-list',
+  templateUrl: './player-list.component.html',
+  styleUrls: ['./player-list.component.css']
 })
-export class PlayerListComponentComponent implements OnInit {
+export class PlayerListComponent implements OnInit {
 
   private playerList: Player[] = [];
   private player: string;
 
-  displayedColumns: string[] = ['name', 'score'];
+  displayedColumns: string[] = ['name', 'win', 'lose', 'score'];
 
   constructor(private playerService: PlayerService) { }
 
