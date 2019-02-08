@@ -1,3 +1,70 @@
-<p>
-  player-edit-component works!
-</p>
+
+  选手： {{player.name}}
+  尚未比赛的对手：
+  <ul>
+    <ol ngFor="let player: playersToFight"> {{player.name}}</ol>
+  </ul>
+
+  比赛历史：
+
+
+  <table mat-table [dataSource]="matchList" class="mat-elevation-z8">
+
+    <!-- Player 1 Column -->
+    <ng-container matColumnDef="player1">
+      <th mat-header-cell *matHeaderCellDef> 选手1 </th>
+      <td mat-cell *matCellDef="let match"> {{match.player1.name}} </td>
+    </ng-container>
+
+    <!-- Player 2 Column -->
+    <ng-container matColumnDef="player2">
+      <th mat-header-cell *matHeaderCellDef> 选手2 </th>
+      <td mat-cell *matCellDef="let match"> {{match.player2.name}} </td>
+    </ng-container>
+
+    <!-- Score Column -->
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef> 比分 </th>
+      <td mat-cell *matCellDef="let match"> <a (click)="openMatchDetail(match)"> {{match.score1}} : {{match.score2}} </a></td>
+    </ng-container>
+
+    <!-- subScore 1 Column -->
+    <ng-container matColumnDef="subScore1">
+      <th mat-header-cell *matHeaderCellDef> 第一局 </th>
+      <td mat-cell *matCellDef="let match"> <p *ngIf="match.subScore11 != null && match.subScore21 != null">{{match.subScore11}} : {{match.subScore21}} </td>
+    </ng-container>
+
+    <!-- subScore 2 Column -->
+    <ng-container matColumnDef="subScore2">
+      <th mat-header-cell *matHeaderCellDef> 第二局 </th>
+      <td mat-cell *matCellDef="let match"> <p *ngIf="match.subScore12 != null && match.subScore22 != null">{{match.subScore12}} : {{match.subScore22}} </p></td>
+    </ng-container>
+
+    <!-- subScore 3 Column -->
+    <ng-container matColumnDef="subScore3">
+      <th mat-header-cell *matHeaderCellDef> 第三局 </th>
+      <td mat-cell *matCellDef="let match"> <p *ngIf="match.subScore13 != null && match.subScore23 != null">{{match.subScore13}} : {{match.subScore23}} </p></td>
+    </ng-container>
+
+    <!-- subScore 4 Column -->
+    <ng-container matColumnDef="subScore4">
+      <th mat-header-cell *matHeaderCellDef> 第四局 </th>
+      <td mat-cell *matCellDef="let match"> <p *ngIf="match.subScore14 != null && match.subScore24 != null">{{match.subScore14}} : {{match.subScore24}} </p></td>
+    </ng-container>
+
+    <!-- subScore 5 Column -->
+    <ng-container matColumnDef="subScore5">
+      <th mat-header-cell *matHeaderCellDef> 第五局 </th>
+      <td mat-cell *matCellDef="let match"> <p *ngIf="match.subScore15 != null && match.subScore25 != null">{{match.subScore15}} : {{match.subScore25}} </p></td>
+    </ng-container>
+
+    <!-- matchDateTime Column -->
+    <ng-container matColumnDef="matchDateTime">
+      <th mat-header-cell *matHeaderCellDef> 比赛日期 </th>
+      <td mat-cell *matCellDef="let match"> {{match.matchDateTimeStr}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+

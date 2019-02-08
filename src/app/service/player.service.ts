@@ -11,12 +11,15 @@ export class PlayerService {
   public getPlayerList():  Observable<Array<Player>> {
     return this.http.get<Player[]>(this.url);
   }
-
   public createPlayer(player: string): Observable<Player> {
     return this.http.put<Player>(this.url, player);
   }
 
-    findPlayersToFight(idPlayer1: number): Observable<Array<Player>> {
-      return this.http.get<Player[]>(this.url + idPlayer1 + '/toFight');
-    }
+  public getPlayer(id: number): Observable<any> {
+    return this.http.get(this.url + id);
+  }
+
+  findPlayersToFight(idPlayer1: number): Observable<Array<Player>> {
+    return this.http.get<Player[]>(this.url + idPlayer1 + '/toFight');
+  }
 }

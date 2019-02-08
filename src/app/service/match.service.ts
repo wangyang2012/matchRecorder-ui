@@ -12,11 +12,15 @@ export class MatchService {
     return this.http.get<Match[]>(this.url);
   }
 
+  public getMatchOfPlayer(playerId: number):  Observable<Array<Match>> {
+      return this.http.get<Match[]>(this.url + playerId + '/player');
+  }
+
   public getMatch(id: number): Observable<Match> {
     return this.http.get<Match>(this.url + id);
   }
 
-  public saveMatch(match: Match): Observable<Match> {
+  public saveMatch(match: Match): Observable<any> {
         console.log('putting...');
       return this.http.put(this.url, match);
     }
